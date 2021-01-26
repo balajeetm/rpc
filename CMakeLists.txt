@@ -68,12 +68,12 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  EXCLUDE_FROM_ALL)
 
 # add the test executable
-add_executable(test
+add_executable(rpctest
   test.cpp
   utils.cpp
 )
 
-target_link_libraries(test 
+target_link_libraries(rpctest 
   gtest_main
   cpprestsdk::cpprest
   cpprestsdk::cpprestsdk_zlib_internal
