@@ -36,13 +36,13 @@ scl enable devtoolset-7 bash
 ```
 
 ### Git
-Build Git source control system.
+Build Git source control system. The make install command will install Git binaries to the ~/bin directory.
 ```
 sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-CPAN perl-devel
-git clone https://github.com/git/git.git
-make configure
+git clone -b v2.28.0 https://github.com/git/git.git
 make
-export PATH=/home/user/Downloads/git:$PATH
+make install
+export PATH=/home/user/bin:$PATH
 ```
 
 ## Build C++ REST SDK
