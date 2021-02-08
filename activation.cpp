@@ -77,6 +77,16 @@ web::json::value get_dns()
     return web::json::value::string(tmp);
 }
 
+web::json::value get_hostname()
+{
+    utility::string_t tmp;
+
+    std::string hostName = net_get_hostname();
+    tmp = utility::conversions::convertstring(hostName);
+
+    return web::json::value::string(tmp);
+}
+
 bool getVersion(web::json::value& value)
 {
     std::string version;
@@ -201,6 +211,9 @@ bool get_activation_payload(web::json::value& payload)
     
     // get DNS Info
     activationParams[U("fqdn")] = get_dns();
+
+    // get hostname
+    activationParams[U("hostname")] = get_hostname();
 
     // get client string
     if (!get_client_string(value)) return false;
